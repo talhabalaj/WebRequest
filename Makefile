@@ -1,13 +1,13 @@
 build: clean Request.o Response.o Headers.o 
-	g++ Request.o Response.o Headers.o main.cpp -o main.out -lcurl
+	g++ build/Request.o build/Response.o build/Headers.o main.cpp -o main.out -lcurl
 	chmod +x main.out
 	@cowsay "Moaaaaa, build completed."
 
 Request.o: 
-	g++ -c Request.cpp -o Request.o
+	g++ -c Request/Request.cpp -o build/Request.o
 Response.o: 
-	g++ -c Response.cpp -o Response.o
+	g++ -c Request/Response.cpp -o build/Response.o
 Headers.o: 
-	g++ -c Headers.cpp -o Headers.o
+	g++ -c Request/Headers.cpp -o build/Headers.o
 clean:	
-	rm -rf *.o
+	rm -rf build/*.o
